@@ -1,4 +1,4 @@
-package com.oop.cw.pase_01;
+package com.oop_cw.pase_01;
 
 public class Electronics extends Product {
     private String brandName;
@@ -30,5 +30,16 @@ public class Electronics extends Product {
     // A public method for assigning value to the daysOfWarranty
     public void setDaysOfWarranty(int daysOfWarranty) {
         this.daysOfWarranty = daysOfWarranty;
+    }
+
+    @Override
+    public String toString() {
+        return "Product Type : Electronic \n" +
+                "Product Id : " + getProductId() + '\n' +
+                "Product Name : " + getProductName() + '\n' +
+                "Product Brand : " + brandName + '\n' +
+                "Product Warranty Days : " + daysOfWarranty + '\n' +
+                "Available Stock : " + getNumOfAvailability() + '\n' +
+                "Product Price : '" + getPrice();
     }
 }

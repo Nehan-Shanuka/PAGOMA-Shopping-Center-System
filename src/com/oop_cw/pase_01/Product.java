@@ -1,4 +1,4 @@
-package com.oop.cw.pase_01;
+package com.oop_cw.pase_01;
 
 public abstract class Product {
     private String productId;
@@ -14,7 +14,7 @@ public abstract class Product {
         // Below Integer.parseInt(null) will throw a NullPointerException
         // and as an example when "System.out.println(price)" call,
         // it won't be reached since the var is in 'null'
-        price = Double.parseDouble(null);
+        price = Double.NaN;
     }
 
     //Constructor with given productId, productName, numOfAvailability and price

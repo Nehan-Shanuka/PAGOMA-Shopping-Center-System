@@ -1,4 +1,4 @@
-package com.oop.cw.pase_01;
+package com.oop_cw.pase_01;
 
 public class User {
     private String username;

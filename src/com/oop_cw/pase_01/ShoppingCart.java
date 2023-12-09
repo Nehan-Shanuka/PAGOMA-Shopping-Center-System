@@ -1,4 +1,4 @@
-package com.oop.cw.pase_01;
+package com.oop_cw.pase_01;
 
 import java.util.List;
 

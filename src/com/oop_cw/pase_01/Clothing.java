@@ -1,6 +1,8 @@
-package com.oop.cw.pase_01;
+package com.oop_cw.pase_01;
 
-public class Clothing extends Product {
+import java.io.Serializable;
+
+public class Clothing extends Product implements Serializable {
     private String size;
     private String color;
 
@@ -29,5 +31,17 @@ public class Clothing extends Product {
     // A public method for retrieving the value of color
     public String getColor() {
         return color;
+    }
+
+    @Override
+    public String toString() {
+
+        return "Product Type : Clothing \n" +
+                "Product Id : " + getProductId() + '\n' +
+                "Product Name : " + getProductName() + + '\n' +
+                "Product Size : " + size + '\n' +
+                "Product Color : " + color + '\n' +
+                "Available Stock : '" + getNumOfAvailability() + '\n' +
+                "Product Price : '" + getPrice();
     }
 }
