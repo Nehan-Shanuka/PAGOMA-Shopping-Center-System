@@ -1,4 +1,4 @@
-package com.oop_cw.pase_01;
+package com.oop_cw.pase_01.model;
 
 import java.io.Serializable;
 
@@ -38,10 +38,10 @@ public class Clothing extends Product implements Serializable {
 
         return "Product Type : Clothing \n" +
                 "Product Id : " + getProductId() + '\n' +
-                "Product Name : " + getProductName() + + '\n' +
+                "Product Name : " + getProductName() + '\n' +
                 "Product Size : " + size + '\n' +
                 "Product Color : " + color + '\n' +
-                "Available Stock : '" + getNumOfAvailability() + '\n' +
+                "Available Stock : " + getNumOfAvailability() + '\n' +
                 "Product Price : '" + getPrice();
     }
 }

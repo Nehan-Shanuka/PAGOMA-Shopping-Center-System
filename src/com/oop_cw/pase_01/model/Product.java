@@ -1,4 +1,4 @@
-package com.oop_cw.pase_01;
+package com.oop_cw.pase_01.model;
 
 public abstract class Product {
     private String productId;

@@ -1,4 +1,6 @@
-package com.oop_cw.pase_01;
+package com.oop_cw.pase_01.controller;
+
+import com.oop_cw.pase_01.model.Product;
 
 import java.util.List;
 
