@@ -1,3 +1,15 @@
-E001, Washing Machine, 500, 85999.0, Damro, 1900
-C001, Blue Gouwn, 3000, 3000.0, blue, medium
-C002, Red Gouwn, 3000, 3000.0, red, medium
+Electronic, E001, Washing Machine, 500, 85999.0, Damro, 1900
+Clothing, C001, Blue Gown, 3000, 3000.0, blue, medium
+Clothing, C002, Red Gown, 3000, 3000.0, red, medium
+Electronic, E001, Washing Machine, 500, 85999.0, Damro, 1900
+Clothing, C001, Blue Gown, 3000, 3000.0, blue, medium
+Clothing, C002, Red Gown, 3000, 3000.0, red, medium
+Electronic, E001, Washing Machine, 500, 85999.0, Damro, 1900
+Clothing, C001, Blue Gown, 3000, 3000.0, blue, medium
+Clothing, C002, Red Gown, 3000, 3000.0, red, medium
+Electronic, E001, Washing Machine, 500, 85999.0, Damro, 1900
+Clothing, C001, Blue Gown, 3000, 3000.0, blue, medium
+Clothing, C002, Red Gown, 3000, 3000.0, red, medium
+Electronic, E001, Washing Machine, 500, 85999.0, Damro, 1900
+Clothing, C001, Blue Gown, 3000, 3000.0, blue, medium
+Clothing, C002, Red Gown, 3000, 3000.0, red, medium

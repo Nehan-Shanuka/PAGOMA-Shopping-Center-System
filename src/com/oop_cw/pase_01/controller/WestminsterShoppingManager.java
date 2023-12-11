@@ -7,6 +7,7 @@ import com.oop_cw.pase_01.model.Product;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class WestminsterShoppingManager implements ShoppingManager {
@@ -217,10 +218,10 @@ public class WestminsterShoppingManager implements ShoppingManager {
                 item.getPrice() + ", ";
 
         if (item instanceof Electronics) {
-            content = content + ((Electronics) item).getBrandName() + ", " +
+            content = "Electronic" + ", " + content + ((Electronics) item).getBrandName() + ", " +
                     ((Electronics) item).getDaysOfWarranty();
         } else if (item instanceof Clothing) {
-            content = content + ((Clothing) item).getColor() + ", " +
+            content = "Clothing" + ", " + content + ((Clothing) item).getColor() + ", " +
                     ((Clothing) item).getSize();
         }
         return content;
@@ -246,22 +247,33 @@ public class WestminsterShoppingManager implements ShoppingManager {
 
                 String[] contentArray = content.split(", ");
 
-                String productId = contentArray[0];
-                String productName = contentArray[1];
-                int availability = Integer.parseInt(contentArray[2]);
-                String price = contentArray[3];
-                String brandName = contentArray[4];
-                String warrantyDays = contentArray[5];
+                String category = contentArray[0];
+                String productId = contentArray[1];
+                String productName = contentArray[2];
+                int availability = Integer.parseInt(contentArray[3]);
+                String price = contentArray[4];
+                String brandNameOrSize = contentArray[5];
+                String warrantyDaysOrColor = contentArray[6];
 
                 Product newProduct;
 
-                if (price.isEmpty()) {
-                    newProduct = new Electronics(productId, productName, availability, brandName, warrantyDays);
-                } else {
-                    double doublePrice = Double.parseDouble(price);
-                    newProduct = new Electronics(productId, productName, availability, doublePrice, brandName, warrantyDays);
+                if (Objects.equals(category, "Electronic")) {
+                    if (price.isEmpty()) {
+                        newProduct = new Electronics(productId, productName, availability, brandNameOrSize, warrantyDaysOrColor);
+                    } else {
+                        double doublePrice = Double.parseDouble(price);
+                        newProduct = new Electronics(productId, productName, availability, doublePrice, brandNameOrSize, warrantyDaysOrColor);
+                    }
+                    productList.add(newProduct);
+                } else if (Objects.equals(category, "Clothing")) {
+                    if (price.isEmpty()) {
+                        newProduct = new Clothing(productId, productName, availability, brandNameOrSize, warrantyDaysOrColor);
+                    } else {
+                        double doublePrice = Double.parseDouble(price);
+                        newProduct = new Clothing(productId, productName, availability, doublePrice, brandNameOrSize, warrantyDaysOrColor);
+                    }
+                    productList.add(newProduct);
                 }
-                productList.add(newProduct);
             }
         } catch (IOException e) {
             e.printStackTrace();
