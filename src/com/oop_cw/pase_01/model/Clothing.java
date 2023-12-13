@@ -42,6 +42,6 @@ public class Clothing extends Product implements Serializable {
                 "Product Size : " + size + '\n' +
                 "Product Color : " + color + '\n' +
                 "Available Stock : " + getNumOfAvailability() + '\n' +
-                "Product Price : '" + getPrice();
+                "Product Price : " + getPrice();
     }
 }

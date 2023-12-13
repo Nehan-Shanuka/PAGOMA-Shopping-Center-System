@@ -2,10 +2,15 @@ package com.oop_cw.pase_01.controller;
 
 import com.oop_cw.pase_01.model.Product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingCart {
     private List<Product> shoppingCartList;
+
+    public ShoppingCart(ArrayList<Product> productArrayList) {
+        this.shoppingCartList = productArrayList;
+    }
 
     // A public method to add products to the list
     public void addProduct(Product product) {
@@ -28,5 +33,9 @@ public class ShoppingCart {
         }
         // Returning the sum
         return sumOfCart;
+    }
+
+    public List<Product> getShoppingCartList() {
+        return shoppingCartList;
     }
 }

@@ -1,5 +1,6 @@
 package com.oop_cw.pase_01.view;
 
+import com.oop_cw.pase_01.controller.ShoppingCart;
 import com.oop_cw.pase_01.controller.ShoppingCartGUIController;
 import com.oop_cw.pase_01.model.Clothing;
 import com.oop_cw.pase_01.model.Electronics;
@@ -12,13 +13,18 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ProductDisplay extends JFrame {
 
+    private JButton btnShoppingCart;
     private JTable tblProductDisplay;
     private JTextArea txtAreaProductDescription;
+    private JButton btnAddToCart;
+    private ArrayList<Product> shoppingCartArrayList = new ArrayList<>();
+    ShoppingCart newInstance = new ShoppingCart(shoppingCartArrayList);
 
-    public ProductDisplay(ArrayList<Product> productList) {
+    public ProductDisplay(ArrayList<Product> productList, ArrayList<Product> shoppingCartArrayList) {
 
         // Initialising the container and setting a layout
         Container mainContainer = getContentPane();
@@ -41,8 +47,18 @@ public class ProductDisplay extends JFrame {
         mainContainer.add(centerPanel);
 
         // JPanel for hold the textarea, and it placed in the bottom of the container
-        JPanel southPanel = new JPanel(new FlowLayout());
+        JPanel southPanel = new JPanel(new GridLayout());
         mainContainer.add(southPanel, BorderLayout.SOUTH);
+//        southPanel.setBackground(Color.BLACK);
+
+        JPanel southSubPanel1 = new JPanel(new FlowLayout());
+//        southSubPanel1.setBackground(Color.CYAN);
+        southSubPanel1.setPreferredSize(new Dimension(600,170));
+        southPanel.add(southSubPanel1, BorderLayout.WEST);
+
+        JPanel southSubPanel2 = new JPanel(new FlowLayout());
+//        southSubPanel2.setBackground(Color.GREEN);
+        southPanel.add(southSubPanel2, BorderLayout.WEST);
 
         // JLabel to describe the dropdown selection
         JLabel lblCategorySelection = new JLabel("Select Product Category");
@@ -55,10 +71,10 @@ public class ProductDisplay extends JFrame {
         northSubPanel1.add(dropdown);
 
         // JButton for rendering the shopping cart scene
-        JButton btnShoppingCart = new JButton("Shopping Cart");
+        btnShoppingCart = new JButton("Shopping Cart");
         northSubPanel2.add(btnShoppingCart);
-
-        btnShoppingCart.addActionListener(new ShoppingCartBtnEventListener());
+        System.out.println(shoppingCartArrayList);
+        btnShoppingCart.addActionListener(new ShoppingCartBtnEventListener((ArrayList<Product>) newInstance.getShoppingCartList()));
 
         // Initialising table model, JTable and JScrollPane and adding them
         TblProductDisplay tblProductDisplayModel = new TblProductDisplay(productList);
@@ -71,23 +87,34 @@ public class ProductDisplay extends JFrame {
 
         // Initialising the JTextArea and adding it into the southPanel
         txtAreaProductDescription = new JTextArea("Selected Product Details");
-        txtAreaProductDescription.setColumns(80);
+        txtAreaProductDescription.setColumns(40);
         txtAreaProductDescription.setRows(10);
         txtAreaProductDescription.setEditable(false);
-        southPanel.add(txtAreaProductDescription);
+        southSubPanel1.add(txtAreaProductDescription);
+
+        btnAddToCart = new JButton("Add to Cart");
+        southSubPanel2.add(btnAddToCart);
+        btnAddToCart.addActionListener(new ShoppingCartDetails(productList));
+    }
+
+    public void openShoppingCart(ArrayList<Product> shoppingCartArrayList) {
+        System.out.println(newInstance.getShoppingCartList());
+        ShoppingCartGUIController shoppingCartDisplay = new ShoppingCartGUIController((ArrayList<Product>) newInstance.getShoppingCartList());
     }
 
     public class ShoppingCartBtnEventListener implements ActionListener {
+        private ArrayList<Product> productArrayList;
+        public ShoppingCartBtnEventListener(ArrayList<Product> productArrayList) {
+            this.productArrayList = productArrayList;
+        }
         @Override
         public void actionPerformed(ActionEvent e) {
-            ShoppingCartGUIController shoppingCartDisplay = new ShoppingCartGUIController();
-
+            openShoppingCart(shoppingCartArrayList);
             dispose();
         }
     }
 
     public class TableSelectionListener implements ListSelectionListener {
-
         ArrayList<Product> productArrayList;
         public TableSelectionListener(ArrayList<Product> productArrayList) {
             this.productArrayList = productArrayList;
@@ -135,12 +162,32 @@ public class ProductDisplay extends JFrame {
                     break;
                 }
             }
-
-//            for (int col = 0; col < table.getColumnCount(); col++) {
-//                rowData.append(table.getColumnName(col)).append(": ")
-//                        .append(table.getValueAt(row, col)).append("\n");
-//            }
             return rowData.toString();
+        }
+    }
+
+    public class ShoppingCartDetails implements ActionListener {
+        ArrayList<Product> productArrayList;
+        ArrayList<Product> shoppingCartArrayList;
+        public ShoppingCartDetails(ArrayList<Product> productArrayList) {
+            this.productArrayList = productArrayList;
+            this.shoppingCartArrayList = new ArrayList<>();
+        }
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            int selectedRow = tblProductDisplay.getSelectedRow();
+
+            if (selectedRow >= 0) {
+                String productId = (String) tblProductDisplay.getValueAt(selectedRow, 0);
+                for (Product item : productArrayList) {
+                    if (Objects.equals(productId, item.getProductId())) {
+                        newInstance.addProduct(item);
+                        shoppingCartArrayList.add(item);
+                        break;
+                    }
+                }
+            }
         }
     }
 }

@@ -11,10 +11,11 @@ public class WestminsterShoppingApplication {
     public static void main(String[] args) {
 
         ArrayList<Product> productList = new ArrayList<>();
+        ArrayList<Product> shoppingCartList = new ArrayList<>();
 
         WestminsterShoppingManager shoppingManager = new WestminsterShoppingManager();
 
-        ProductDisplayController productDisplayScene = new ProductDisplayController(productList);
+        ProductDisplayController productDisplayScene = new ProductDisplayController(productList, shoppingCartList);
 
         shoppingManager.menu(productList);
 

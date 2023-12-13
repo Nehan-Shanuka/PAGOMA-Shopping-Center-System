@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class ShoppingCartDisplay extends JFrame {
 
-    public ShoppingCartDisplay() {
+    public ShoppingCartDisplay(ArrayList<Product> productArrayList) {
 
         Container mainContainer = getContentPane();
         mainContainer.setLayout(new GridLayout(2,1));
@@ -19,10 +19,11 @@ public class ShoppingCartDisplay extends JFrame {
         JPanel southPanel = new JPanel();
         mainContainer.add(southPanel);
 
-        JTable tblProductDisplay = new JTable();
-        tblProductDisplay.setRowHeight(40);
+        TblShoppingCartDisplay shoppingCartDisplayModel = new TblShoppingCartDisplay(productArrayList);
+        JTable shoppingCartDisplay = new JTable(shoppingCartDisplayModel);
+        shoppingCartDisplay.setRowHeight(80);
 
-        JScrollPane scrollPane = new JScrollPane(tblProductDisplay);
+        JScrollPane scrollPane = new JScrollPane(shoppingCartDisplay);
         northPanel.add(scrollPane);
     }
 }

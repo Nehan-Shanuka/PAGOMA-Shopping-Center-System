@@ -9,9 +9,9 @@ import java.util.ArrayList;
 
 public class ProductDisplayController {
 
-    public ProductDisplayController(ArrayList<Product> productList) {
+    public ProductDisplayController(ArrayList<Product> productList, ArrayList<Product> shoppingCartList) {
 
-        ProductDisplay frame = new ProductDisplay(productList);
+        ProductDisplay frame = new ProductDisplay(productList, shoppingCartList);
         frame.setSize(900, 600);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
