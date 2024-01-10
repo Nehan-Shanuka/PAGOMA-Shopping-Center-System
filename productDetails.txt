@@ -1,15 +1,20 @@
-Electronic, E001, Washing Machine, 500, 85999.0, Damro, 1900
-Clothing, C001, Blue Gown, 3000, 3000.0, blue, medium
-Clothing, C002, Red Gown, 3000, 3000.0, red, medium
-Electronic, E001, Washing Machine, 500, 85999.0, Damro, 1900
-Clothing, C001, Blue Gown, 3000, 3000.0, blue, medium
-Clothing, C002, Red Gown, 3000, 3000.0, red, medium
-Electronic, E001, Washing Machine, 500, 85999.0, Damro, 1900
-Clothing, C001, Blue Gown, 3000, 3000.0, blue, medium
-Clothing, C002, Red Gown, 3000, 3000.0, red, medium
-Electronic, E001, Washing Machine, 500, 85999.0, Damro, 1900
-Clothing, C001, Blue Gown, 3000, 3000.0, blue, medium
-Clothing, C002, Red Gown, 3000, 3000.0, red, medium
-Electronic, E001, Washing Machine, 500, 85999.0, Damro, 1900
-Clothing, C001, Blue Gown, 3000, 3000.0, blue, medium
-Clothing, C002, Red Gown, 3000, 3000.0, red, medium
+Electronic, E001, Electric Oven, 1000, 69999.0, Damro, 1900 Days
+Electronic, E002, Electric Oven, 1000, 69999.0, Damro, 1900 Days
+Electronic, E003, Electric Oven, 1000, 69999.0, Damro, 1900 Days
+Electronic, E004, Electric Oven, 1000, 69999.0, Damro, 1900 Days
+Electronic, E005, Electric Oven, 1000, 69999.0, Damro, 1900 Days
+Electronic, E006, Electric Oven, 1000, 69999.0, Damro, 1900 Days
+Electronic, E007, Electric Oven, 1000, 69999.0, Damro, 1900 Days
+Electronic, E008, Electric Oven, 996, 69999.0, Damro, 1900 Days
+Electronic, E009, Electric Oven, 1000, 69999.0, Damro, 1900 Days
+Electronic, E0010, Electric Oven, 1000, 69999.0, Damro, 1900 Days
+Electronic, E0011, Electric Oven, 1000, 69999.0, Damro, 1900 Days
+Electronic, E0012, Electric Oven, 1000, 69999.0, Damro, 1900 Days
+Electronic, E0013, Electric Oven, 1000, 69999.0, Damro, 1900 Days
+Electronic, E0014, Electric Oven, 1000, 69999.0, Damro, 1900 Days
+Electronic, E0015, Electric Oven, 1000, 69999.0, Damro, 1900 Days
+Electronic, E0016, Electric Oven, 1000, 69999.0, Damro, 1900 Days
+Electronic, E0017, Electric Oven, 1000, 69999.0, Damro, 1900 Days
+Electronic, E0018, Electric Oven, 1000, 69999.0, Damro, 1900 Days
+Electronic, E0019, Electric Oven, 1000, 69999.0, Damro, 1900 Days
+Electronic, E0020, Electric Oven, 1000, 69999.0, Damro, 1900 Days

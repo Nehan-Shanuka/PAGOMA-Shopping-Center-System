@@ -5,10 +5,10 @@ import com.oop_cw.pase_01.model.Product;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShoppingCart {
+public class ShoppingCartController {
     private List<Product> shoppingCartList;
 
-    public ShoppingCart(ArrayList<Product> productArrayList) {
+    public ShoppingCartController(ArrayList<Product> productArrayList) {
         this.shoppingCartList = productArrayList;
     }
 

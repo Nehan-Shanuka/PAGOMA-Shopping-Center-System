@@ -9,12 +9,12 @@ import java.util.ArrayList;
 
 public class ShoppingCartGUIController {
 
-    public ShoppingCartGUIController(ArrayList<Product> productArrayList) {
+    public ShoppingCartGUIController() {
 
-        ShoppingCartDisplay frame = new ShoppingCartDisplay(productArrayList);
+        ShoppingCartDisplay frame = new ShoppingCartDisplay();
         frame.setSize(900, 600);
         frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
         frame.setTitle("Westminster Shopping Center");
         frame.setLocationRelativeTo(null);

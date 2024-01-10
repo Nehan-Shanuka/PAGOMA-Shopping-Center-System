@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface ShoppingManager {
 
-    void addProduct(List<Product> productList);
+    void addProduct();
 
-    void deleteProduct(List<Product> productList);
+    void deleteProduct();
 
-    void printProductList(List<Product> productList);
+    void printProductList();
 
-    void saveIntoAFile(List<Product> productList);
+    void saveIntoTheFile();
 }

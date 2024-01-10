@@ -1,27 +1,27 @@
 package com.oop_cw.pase_01.controller;
 
-import com.oop_cw.pase_01.model.Clothing;
-import com.oop_cw.pase_01.model.Electronics;
-import com.oop_cw.pase_01.model.Product;
+import com.oop_cw.pase_01.model.*;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class WestminsterShoppingManager implements ShoppingManager {
     // Create a Scanner object to read input from the user
     static Scanner input = new Scanner(System.in);
+    static ProductList productList = ProductList.getInstance();
+    static UserList userList = UserList.getInstance();
 
-    public void menu(ArrayList<Product> productList) {
+    public void menu() {
 
         // Declaring the instance of WestminsterShoppingManager
         // to access the dynamic(non-static) methods. *Since those methods
-        // are overriding from an interface those methods con not be static.
+        // are overriding from an interface that can not be static.
         WestminsterShoppingManager newClassInstance = new WestminsterShoppingManager();
 
-        loadFromTheFile(productList);
+        loadFromTheFile();
+        userList.loadUserList();
+        UserLoginController userLoginControllerNew = new UserLoginController();
+//        ProductDisplayController productDisplayController = new ProductDisplayController();
 
         int option;
 
@@ -32,26 +32,34 @@ public class WestminsterShoppingManager implements ShoppingManager {
                 		2) Remove a existing product   -> [2]
                 		3) Print the list of products  -> [3]
                 		4) Save into the file          -> [4]
+                		5) Open GUI                    -> [5]
+                		6) User Register               -> [6]
                 		-------------------------------------
                 		*) Quit the Menu               -> [0]
                 		""");
 
-            System.out.print('\n' + "Enter the option : ");
+            System.out.print("Enter the option : ");
             option = input.nextInt();
             input.nextLine();
 
             switch (option) {
                 case 1:
-                    newClassInstance.addProduct(productList);
+                    newClassInstance.addProduct();
                     break;
                 case 2:
-                    newClassInstance.deleteProduct(productList);
+                    newClassInstance.deleteProduct();
                     break;
                 case 3:
-                    newClassInstance.printProductList(productList);
+                    newClassInstance.printProductList();
                     break;
                 case 4:
-                    newClassInstance.saveIntoAFile(productList);
+                    newClassInstance.saveIntoTheFile();
+                    break;
+                case 5:
+                    UserLoginController userLoginController = new UserLoginController();
+                    break;
+                case 6:
+                    userRegister();
                     break;
             }
         } while (option != 0);
@@ -60,7 +68,7 @@ public class WestminsterShoppingManager implements ShoppingManager {
 
     // An override public method for add new products
     @Override
-    public void addProduct(List<Product> productList) {
+    public void addProduct() {
         // Declaring the instance of Product
         Product newProduct;
 
@@ -111,7 +119,7 @@ public class WestminsterShoppingManager implements ShoppingManager {
                         doublePrice, brandName, daysOfWarranty);
 
             }
-            productList.add(newProduct);
+            productList.addToProductList(newProduct);
 
         } else if (productCategory.equalsIgnoreCase("C")) {
 
@@ -131,152 +139,56 @@ public class WestminsterShoppingManager implements ShoppingManager {
                         doublePrice, clothSize, clothColor);
 
             }
-            productList.add(newProduct);
+            productList.addToProductList(newProduct);
         }
         System.out.println();
     }
 
     @Override
-    public void deleteProduct(List<Product> productList) {
+    public void deleteProduct() {
         System.out.print("\nEnter the Product Id : ");
         String idOfProduct = input.nextLine();
 
-        for (Product item : productList) {
-            if (idOfProduct.equals(item.getProductId())) {
-                productList.remove(item);
+        for (Product item: productList.getProductList()) {
+            if (Objects.equals(item.getProductId(), idOfProduct)) {
+                productList.removeFormProductList(item);
                 break;
-                /*try (BufferedReader br = new BufferedReader(new FileReader("productDetails.txt"));
-                     BufferedWriter bw = new BufferedWriter(new FileWriter("temp.txt"))) {
-
-                    String line;
-                    int lineCount = 0;
-
-                    // Assigning read line to line var and checking the nullness of the line
-                    while ((line = br.readLine()) != null) {
-                        // If the next line of the file not null then,
-                        // Incrementing the lineCount by one
-                        lineCount++;
-
-                        // Checking the line contains with relevant product details
-                        if (Objects.equals(getContent(item), line)) {
-
-
-
-                            break;
-                        }
-
-                    }
-
-                    if (Objects.equals(getContent(item), br.readLine())) {
-
-                    }
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }*/
             }
         }
-
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("productDetails.txt", false))) {
-            // The second parameter 'false' in FileWriter means overwrite the file (truncate)
-            // If the file doesn't exist, a new file will be created
-            for (Product item : productList) {
-                bufferedWriter.write(getContent(item));
-                bufferedWriter.newLine();
-
-                System.out.println("File deleted and rewritten successfully.");
-            }
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
+        productList.saveProductList();
     }
 
     @Override
-    public void saveIntoAFile(List<Product> productList) {
-
-        try {
-            FileWriter myWriter = new FileWriter("productDetails.txt");
-            for (Product item : productList) {
-                String content = getContent(item);
-
-                String newline = System.getProperty("line.separator");
-
-                myWriter.write(content);
-                myWriter.write(newline);
-            }
-            myWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private String getContent(Product item) {
-
-        String content = item.getProductId() + ", " +
-                item.getProductName() + ", " +
-                item.getNumOfAvailability() + ", " +
-                item.getPrice() + ", ";
-
-        if (item instanceof Electronics) {
-            content = "Electronic" + ", " + content + ((Electronics) item).getBrandName() + ", " +
-                    ((Electronics) item).getDaysOfWarranty();
-        } else if (item instanceof Clothing) {
-            content = "Clothing" + ", " + content + ((Clothing) item).getColor() + ", " +
-                    ((Clothing) item).getSize();
-        }
-        return content;
+    public void saveIntoTheFile() {
+        productList.saveProductList();
     }
 
     @Override
-    public void printProductList(List<Product> productList) {
+    public void printProductList() {
         // Iterating through the list of product instances
         // and printout attributes of those
-        for (Product item :  productList) {
+        for (Product item :  productList.getProductList()) {
             System.out.println('\n' + item.toString());
         }
     }
 
-    private static void loadFromTheFile(List<Product> productList) {
+    private static void loadFromTheFile() {
+        productList.loadProductList();
+    }
 
-        try {
-            FileReader fileObj = new FileReader("productDetails.txt");
-            Scanner fileReader = new Scanner(fileObj);
+    public void userRegister() {
+        Scanner input = new Scanner(System.in);
 
-            while (fileReader.hasNextLine()) {
-                String content = fileReader.nextLine();
+        System.out.print("Username : ");
+        String username = input.next();
+        System.out.println("Password : ");
+        String password = input.next();
 
-                String[] contentArray = content.split(", ");
+        User newUser = new User(username, password);
 
-                String category = contentArray[0];
-                String productId = contentArray[1];
-                String productName = contentArray[2];
-                int availability = Integer.parseInt(contentArray[3]);
-                String price = contentArray[4];
-                String brandNameOrSize = contentArray[5];
-                String warrantyDaysOrColor = contentArray[6];
+        UserList userList = UserList.getInstance();
 
-                Product newProduct;
-
-                if (Objects.equals(category, "Electronic")) {
-                    if (price.isEmpty()) {
-                        newProduct = new Electronics(productId, productName, availability, brandNameOrSize, warrantyDaysOrColor);
-                    } else {
-                        double doublePrice = Double.parseDouble(price);
-                        newProduct = new Electronics(productId, productName, availability, doublePrice, brandNameOrSize, warrantyDaysOrColor);
-                    }
-                    productList.add(newProduct);
-                } else if (Objects.equals(category, "Clothing")) {
-                    if (price.isEmpty()) {
-                        newProduct = new Clothing(productId, productName, availability, brandNameOrSize, warrantyDaysOrColor);
-                    } else {
-                        double doublePrice = Double.parseDouble(price);
-                        newProduct = new Clothing(productId, productName, availability, doublePrice, brandNameOrSize, warrantyDaysOrColor);
-                    }
-                    productList.add(newProduct);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        userList.addUserToUserList(newUser);
+        userList.saveUserList();
     }
 }

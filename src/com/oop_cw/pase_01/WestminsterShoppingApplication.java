@@ -15,9 +15,9 @@ public class WestminsterShoppingApplication {
 
         WestminsterShoppingManager shoppingManager = new WestminsterShoppingManager();
 
-        ProductDisplayController productDisplayScene = new ProductDisplayController(productList, shoppingCartList);
+//        ProductDisplayController productDisplayScene = new ProductDisplayController(productList, shoppingCartList);
 
-        shoppingManager.menu(productList);
+        shoppingManager.menu();
 
     }
 

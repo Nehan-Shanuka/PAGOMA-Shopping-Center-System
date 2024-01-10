@@ -1,18 +1,15 @@
 package com.oop_cw.pase_01.controller;
 
-import com.oop_cw.pase_01.model.Product;
-import com.oop_cw.pase_01.view.ProductDisplay;
+import com.oop_cw.pase_01.view.UserLogin;
 
-import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
-public class ProductDisplayController {
+public class UserLoginController {
 
-    public ProductDisplayController() {
+    public UserLoginController() {
 
-        ProductDisplay frame = new ProductDisplay();
-        frame.setSize(900, 600);
+        UserLogin frame = new UserLogin();
+        frame.setSize(600, 300);
         frame.setVisible(true);
 //        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
