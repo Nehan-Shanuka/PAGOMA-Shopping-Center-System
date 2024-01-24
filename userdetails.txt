@@ -1,1 +1,2 @@
-nehan, 123
+nehan, 1212, 1
+tudyi, 4545, 0

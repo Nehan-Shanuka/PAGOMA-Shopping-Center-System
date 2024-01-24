@@ -1,10 +1,10 @@
 package com.oop_cw.pase_01.view;
 
-import com.oop_cw.pase_01.controller.ShoppingCartController;
 import com.oop_cw.pase_01.controller.ShoppingCartGUIController;
 import com.oop_cw.pase_01.model.*;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -37,27 +37,47 @@ public class ProductDisplay extends JFrame {
         mainContainer.setLayout(new BorderLayout());
 
         // JPanel for contain both dropdown list and shopping cart btn
-        JPanel northPanel = new JPanel(new GridLayout());
+        JPanel northPanel = new JPanel(new GridLayout(1, 2));
+        northPanel.setPreferredSize(new Dimension(900, 50));
 
         // JPanel for hold the dropdown selection and its label
-        JPanel northSubPanel1 = new JPanel(new FlowLayout());
+        JPanel northSubPanel1 = new JPanel(new GridLayout());
+        northSubPanel1.setBackground(new Color(53, 94, 59, 255));
+//        northSubPanel1.setBorder(new EmptyBorder(10, 120, 10, 120));
+
+        JPanel northPanel1SubPanel1 = new JPanel(new GridLayout());
+        northPanel1SubPanel1.setBackground(new Color(53, 94, 59, 255));
+        northPanel1SubPanel1.setForeground(Color.WHITE);
+        northPanel1SubPanel1.setBorder(new EmptyBorder(10, 35, 10, 0));
+        JPanel northPanel1SubPanel2 = new JPanel(new FlowLayout());
+        northPanel1SubPanel2.setBackground(new Color(53, 94, 59, 255));
+        northPanel1SubPanel2.setBorder(new EmptyBorder(7, 0, 13, 80));
+
+        northSubPanel1.add(northPanel1SubPanel1);
+        northSubPanel1.add(northPanel1SubPanel2);
+
         // JPanel for hold the btn for shopping cart
-        JPanel northSubPanel2 = new JPanel();
+        JPanel northSubPanel2 = new JPanel(new BorderLayout());
+        northSubPanel2.setBackground(new Color(53, 94, 59, 255));
+        northSubPanel2.setBorder(new EmptyBorder(10, 120, 10, 120));
 
         // JLabel to describe the dropdown selection
-        JLabel lblCategorySelection = new JLabel("Select Product Category");
+        JLabel lblCategorySelection = new JLabel("SELECT PRODUCT CATEGORY");
+        lblCategorySelection.setForeground(Color.WHITE);
 
-        String[] dropdownList = {"All", "Electronic", "Clothing"};
+        String[] dropdownList = {"ALL", "ELECTRONIC", "CLOTHING"};
         // Initialising the dropdown selection with three selections
         dropdown = new JComboBox<>(dropdownList);
         dropdown.addItemListener(new DropdownSelectionEventListener());
 
         // JButton for rendering the shopping cart scene
-        btnShoppingCart = new JButton("Shopping Cart");
+        btnShoppingCart = new JButton("SHOPPING CART");
         btnShoppingCart.addActionListener(new ShoppingCartBtnEventListener());
+        btnShoppingCart.setBackground((new Color(255, 255, 255, 255)));
+        btnShoppingCart.setForeground((new Color(0, 0, 0, 200)));
 
-        northSubPanel1.add(lblCategorySelection);
-        northSubPanel1.add(dropdown);
+        northPanel1SubPanel1.add(lblCategorySelection);
+        northPanel1SubPanel2.add(dropdown);
         northSubPanel2.add(btnShoppingCart);
 
         northPanel.add(northSubPanel1, BorderLayout.WEST);
@@ -66,15 +86,14 @@ public class ProductDisplay extends JFrame {
         mainContainer.add(northPanel, BorderLayout.NORTH);
 
 
-
         // JPanel for hold the JTable, and it centered in between north and south panels
         centerPanel = new JPanel(new GridLayout());
-        centerPanel.setPreferredSize(new Dimension(900,500));
+        centerPanel.setPreferredSize(new Dimension(900,400));
 
         // Initialising table model, JTable and JScrollPane and adding them
-        TblProductModel tblProductModelModel = new TblProductModel();
+        TblProductModel tblProductModelModel = new TblProductModel(productListNew.getProductList());
         tblProductDisplay = new JTable(tblProductModelModel);
-        tblProductDisplay.setRowHeight(23);
+        tblProductDisplay.setRowHeight(30);
         tblProductDisplay.getSelectionModel().addListSelectionListener(new TableSelectionListener());
 //        tblProductDisplay.getColumnModel().getColumn(0).
 //                setCellRenderer(new AvailabilityCellRenderer(productList));
@@ -88,20 +107,36 @@ public class ProductDisplay extends JFrame {
 
         // JPanel for hold the textarea, and it placed in the bottom of the container
         JPanel southPanel = new JPanel(new GridLayout());
+        southPanel.setPreferredSize(new Dimension(900,180));
 
-        JPanel southSubPanel1 = new JPanel(new GridLayout());
-        JPanel southSubPanel2 = new JPanel(new FlowLayout());
+        JPanel southSubPanel1 = new JPanel(new BorderLayout());
+        JPanel southSubPanel2 = new JPanel(new BorderLayout());
+        southSubPanel2.setBackground(new Color(53, 94, 59, 255));
+        southSubPanel2.setBorder(new EmptyBorder(50, 80, 50, 80));
+
+        JPanel southSubPanel1Sub1 = new JPanel(new FlowLayout());
+        southSubPanel1Sub1.setBackground(new Color(53, 94, 59, 255));
 
         // Initialising the JTextArea and adding it into the southPanel
-        txtAreaProductDescription = new JTextArea("Selected Product Details");
+        JLabel lblProductDetailBanner = new JLabel("SELECTED PRODUCT DETAIL");
+        lblProductDetailBanner.setForeground(Color.WHITE);
+
+        southSubPanel1Sub1.add(lblProductDetailBanner);
+        southSubPanel1.add(southSubPanel1Sub1, BorderLayout.NORTH);
+        southSubPanel1.setPreferredSize(new Dimension(450, 20));
+
+        txtAreaProductDescription = new JTextArea();
         txtAreaProductDescription.setRows(10);
         Font fontSize = txtAreaProductDescription.getFont().deriveFont(14f);
         txtAreaProductDescription.setFont(fontSize);
         txtAreaProductDescription.setAlignmentX(Component.RIGHT_ALIGNMENT);
         txtAreaProductDescription.setEditable(false);
 
-        btnAddToCart = new JButton("Add to Cart");
+        btnAddToCart = new JButton("ADD TO CART");
         btnAddToCart.addActionListener(new ShoppingCartDetails());
+        btnAddToCart.setFont(btnAddToCart.getFont().deriveFont(18f));
+        btnAddToCart.setBackground((new Color(255, 255, 255, 255)));
+        btnAddToCart.setForeground((new Color(0, 0, 0, 200)));
 
         southSubPanel1.add(txtAreaProductDescription);
         southSubPanel2.add(btnAddToCart);
@@ -155,10 +190,11 @@ public class ProductDisplay extends JFrame {
             }
         }
     }
+
     // A public method for updating the table
     public void updateTable(ArrayList<Product> newList) {
         // Initialising a new table model
-        TblProductModel tblProductModelModel = new TblProductModel();
+        TblProductModel tblProductModelModel = new TblProductModel(newList);
         // Setting new table model for the JTable
         tblProductDisplay.setModel(tblProductModelModel);
     }
@@ -181,6 +217,7 @@ public class ProductDisplay extends JFrame {
             if (!evt.getValueIsAdjusting()) {
                 // Get the selected row and display data in the JTextArea
                 selectedRow = tblProductDisplay.getSelectedRow();
+
                 if (selectedRow >= 0) {
                     String rowData = getRowData(tblProductDisplay, selectedRow);
                     txtAreaProductDescription.setText(rowData);
@@ -190,29 +227,28 @@ public class ProductDisplay extends JFrame {
     }
     private String getRowData(JTable table, int row) {
         StringBuilder rowData = new StringBuilder("""
-                    Selected Product Details
                     
                     """);
         for (Product item : productListNew.getProductList()) {
             if (item.getProductId() == table.getValueAt(row, 0)) {
                 if (item instanceof Electronics) {
-                    rowData.append("Product Id : ").append(item.getProductId()).append("\n")
-                            .append("Category : Electronic").append("\n")
-                            .append("Name : ").append(item.getProductName()).append("\n")
-                            .append("Brand : ").append(((Electronics) item).getBrandName()).append("\n")
-                            .append("Warranty Period : ").append(((Electronics) item).getDaysOfWarranty())
+                    rowData.append("        ").append("Product Id : ").append(item.getProductId()).append("\n")
+                            .append("        ").append("Category : Electronic").append("\n")
+                            .append("        ").append("Name : ").append(item.getProductName()).append("\n")
+                            .append("        ").append("Brand : ").append(((Electronics) item).getBrandName()).append("\n")
+                            .append("        ").append("Warranty Period : ").append(((Electronics) item).getDaysOfWarranty())
                             .append("\n")
-                            .append("Items Available : ").append(item.getNumOfAvailability())
+                            .append("        ").append("Items Available : ").append(item.getNumOfAvailability())
                             .append("\n");
                 }
                 else if (item instanceof Clothing) {
-                    rowData.append("Product Id : ").append(item.getProductId()).append("\n")
-                            .append("Category : Clothing").append("\n")
-                            .append("Name : ").append(item.getProductName()).append("\n")
-                            .append("Size : ").append(((Clothing) item).getSize()).append("\n")
-                            .append("Color : ").append(((Clothing) item).getColor())
+                    rowData.append("        ").append("Product Id : ").append(item.getProductId()).append("\n")
+                            .append("        ").append("Category : Clothing").append("\n")
+                            .append("        ").append("Name : ").append(item.getProductName()).append("\n")
+                            .append("        ").append("Size : ").append(((Clothing) item).getSize()).append("\n")
+                            .append("        ").append("Color : ").append(((Clothing) item).getColor())
                             .append("\n")
-                            .append("Items Available : ").append(item.getNumOfAvailability())
+                            .append("        ").append("Items Available : ").append(item.getNumOfAvailability())
                             .append("\n");
                 }
                 break;
@@ -239,17 +275,20 @@ public class ProductDisplay extends JFrame {
 
                                 if (shoppingCart.getShoppingCartList().get(i) == item) {
                                     shoppingCart.incrementProductBuyCount(i);
+//                                    shoppingCart.addToTempProductList(i, item.getNumOfAvailability()+1);
                                     break;
 
                                 } else if (i == shoppingCart.getShoppingCartList().size()-1) {
                                     shoppingCart.addToCart(item);
                                     shoppingCart.getProductBuyCount().add(1);
+                                    shoppingCart.getTempProductBuyCount().add(item.getNumOfAvailability()+1);
                                     break;
                                 }
                             }
-                        }else {
+                        } else {
                             shoppingCart.addToCart(item);
                             shoppingCart.getProductBuyCount().add(1);
+                            shoppingCart.addToTempProductList(0, item.getNumOfAvailability()+1);
                         }
                         break;
                     }
@@ -263,7 +302,8 @@ public class ProductDisplay extends JFrame {
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
                                                        boolean hasFocus, int row, int column) {
-            Component component = super.getTableCellRendererComponent(tblProductDisplay, value, isSelected, hasFocus, row, column);
+            Component component = super.getTableCellRendererComponent(
+                    tblProductDisplay, value, isSelected, hasFocus, row, column);
 
             String productId = (String) table.getModel().getValueAt(row, 0);
             int availability = 0;

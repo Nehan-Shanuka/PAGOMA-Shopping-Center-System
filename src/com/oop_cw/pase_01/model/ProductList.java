@@ -11,8 +11,8 @@ import java.util.Scanner;
 public class ProductList {
 
     private static ProductList instance;
-
     private ArrayList<Product> productList = new ArrayList<>();
+    private ArrayList<Integer> tempProductList = new ArrayList<>();
 
     public ProductList() {}
 
@@ -24,6 +24,18 @@ public class ProductList {
     }
     public ArrayList<Product> getProductList() {
         return productList;
+    }
+
+    public void setProductList(ArrayList<Product> arrayList) {
+        productList = arrayList;
+    }
+
+    public ArrayList<Integer> getTempProductList() {
+        return tempProductList;
+    }
+
+    public void setTempProductList(ArrayList<Integer> tempProductList) {
+        this.tempProductList = tempProductList;
     }
 
     public void addToProductList(Product product) {
@@ -89,7 +101,7 @@ public class ProductList {
                 if (Objects.equals(category, "Electronic")) {
                     if (price.isEmpty()) {
                         newProduct = new Electronics(productId, productName,
-                                availability, brandNameOrSize, warrantyDaysOrColor);
+                                availability, brandNameOrSize,warrantyDaysOrColor);
                     } else {
                         double doublePrice = Double.parseDouble(price);
                         newProduct = new Electronics(productId, productName,

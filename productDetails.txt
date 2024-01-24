@@ -1,20 +1,3 @@
-Electronic, E001, Electric Oven, 1000, 69999.0, Damro, 1900 Days
-Electronic, E002, Electric Oven, 1000, 69999.0, Damro, 1900 Days
-Electronic, E003, Electric Oven, 1000, 69999.0, Damro, 1900 Days
-Electronic, E004, Electric Oven, 1000, 69999.0, Damro, 1900 Days
-Electronic, E005, Electric Oven, 1000, 69999.0, Damro, 1900 Days
-Electronic, E006, Electric Oven, 1000, 69999.0, Damro, 1900 Days
-Electronic, E007, Electric Oven, 1000, 69999.0, Damro, 1900 Days
-Electronic, E008, Electric Oven, 996, 69999.0, Damro, 1900 Days
-Electronic, E009, Electric Oven, 1000, 69999.0, Damro, 1900 Days
-Electronic, E0010, Electric Oven, 1000, 69999.0, Damro, 1900 Days
-Electronic, E0011, Electric Oven, 1000, 69999.0, Damro, 1900 Days
-Electronic, E0012, Electric Oven, 1000, 69999.0, Damro, 1900 Days
-Electronic, E0013, Electric Oven, 1000, 69999.0, Damro, 1900 Days
-Electronic, E0014, Electric Oven, 1000, 69999.0, Damro, 1900 Days
-Electronic, E0015, Electric Oven, 1000, 69999.0, Damro, 1900 Days
-Electronic, E0016, Electric Oven, 1000, 69999.0, Damro, 1900 Days
-Electronic, E0017, Electric Oven, 1000, 69999.0, Damro, 1900 Days
-Electronic, E0018, Electric Oven, 1000, 69999.0, Damro, 1900 Days
-Electronic, E0019, Electric Oven, 1000, 69999.0, Damro, 1900 Days
-Electronic, E0020, Electric Oven, 1000, 69999.0, Damro, 1900 Days
+Electronic, E001, Electric Oven, 7, 86999.0, Singer, 2000 Days
+Electronic, E002, Rice Cooker, 14, 65999.0, Innovex, 2500 Days
+Clothing, C001, Gown, 11, 2560.0, Medium, Red

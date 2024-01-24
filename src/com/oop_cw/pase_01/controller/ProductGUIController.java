@@ -1,18 +1,17 @@
 package com.oop_cw.pase_01.controller;
 
-import com.oop_cw.pase_01.view.ShoppingCartDisplay;
-import com.oop_cw.pase_01.view.UserLoginDisplay;
+import com.oop_cw.pase_01.view.ProductDisplay;
 
 import javax.swing.*;
 import java.awt.*;
 
-// The controller class for open ShoppingCart GUI
-public class ShoppingCartGUIController {
+public class ProductGUIController {
 
-    public ShoppingCartGUIController() {
+    // The controller class for open ProductDisplay GUI
+    public ProductGUIController() {
 
-        // Creating an instance of UserLoginDisplay extended JFrame
-        ShoppingCartDisplay frame = new ShoppingCartDisplay();
+        // Creating an instance of ProductDisplay extended JFrame
+        ProductDisplay frame = new ProductDisplay();
         // Setting a width and height for the frame
         frame.setSize(900, 600);
         // Setting the visibility of the frame true

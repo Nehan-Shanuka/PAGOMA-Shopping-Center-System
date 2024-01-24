@@ -6,20 +6,22 @@ import com.oop_cw.pase_01.model.Product;
 import com.oop_cw.pase_01.model.ProductList;
 
 import javax.swing.table.AbstractTableModel;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TblProductModel extends AbstractTableModel {
-
     private String[] columnName = {"Product Id", "Name", "Category", "Price(LKR)", "Info"};
+    private ArrayList<Product> productArrayList = new ArrayList<>();
 
     ProductList productList = ProductList.getInstance();
 
-    public TblProductModel() {
+    public TblProductModel(ArrayList<Product> productArrayList) {
+        this.productArrayList = productArrayList;
     }
 
     @Override
     public int getRowCount() {
-        return productList.getProductList().size();
+        return productArrayList.size();
     }
 
     @Override
@@ -31,25 +33,25 @@ public class TblProductModel extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         Object temp = null;
         if (columnIndex == 0) {
-            temp = productList.getProductList().get(rowIndex).getProductId();
+            temp = productArrayList.get(rowIndex).getProductId();
         } else if (columnIndex == 1) {
-            temp = productList.getProductList().get(rowIndex).getProductName();
+            temp = productArrayList.get(rowIndex).getProductName();
         } else if (columnIndex == 2) {
-            if (productList.getProductList().get(rowIndex) instanceof Electronics) {
+            if (productArrayList.get(rowIndex) instanceof Electronics) {
                 temp = "Electronic";
             }
             else {
                 temp = "Clothing";
             }
         } else if (columnIndex == 3) {
-            temp = productList.getProductList().get(rowIndex).getPrice();
+            temp = productArrayList.get(rowIndex).getPrice();
         } else if (columnIndex == 4) {
-            if (productList.getProductList().get(rowIndex) instanceof Electronics) {
-                temp = ((Electronics) productList.getProductList().get(rowIndex)).getBrandName() +
-                        ", " + ((Electronics) productList.getProductList().get(rowIndex)).getDaysOfWarranty();
+            if (productArrayList.get(rowIndex) instanceof Electronics) {
+                temp = ((Electronics) productArrayList.get(rowIndex)).getBrandName() +
+                        ", " + ((Electronics) productArrayList.get(rowIndex)).getDaysOfWarranty();
             } else {
-                temp = ((Clothing) productList.getProductList().get(rowIndex)).getSize() +
-                        ", "  + ((Clothing) productList.getProductList().get(rowIndex)).getColor();
+                temp = ((Clothing) productArrayList.get(rowIndex)).getSize() +
+                        ", "  + ((Clothing) productArrayList.get(rowIndex)).getColor();
             }
         }
         return temp;

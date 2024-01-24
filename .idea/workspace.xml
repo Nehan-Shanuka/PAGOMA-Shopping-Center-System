@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e0eaf65d-7897-453f-8517-f5adc4d8478c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/productDetails.txt" beforeDir="false" afterPath="$PROJECT_DIR$/productDetails.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/oop_cw/pase_01/WestminsterShoppingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/oop_cw/pase_01/WestminsterShoppingApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/oop_cw/pase_01/controller/ProductDisplayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/oop_cw/pase_01/controller/ProductGUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/oop_cw/pase_01/controller/ShoppingCartController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/oop_cw/pase_01/controller/ShoppingCartGUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/oop_cw/pase_01/controller/ShoppingCartGUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/oop_cw/pase_01/controller/ShoppingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/oop_cw/pase_01/controller/ShoppingManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/oop_cw/pase_01/controller/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/oop_cw/pase_01/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/oop_cw/pase_01/controller/UserLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/oop_cw/pase_01/controller/UserLoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/oop_cw/pase_01/controller/WestminsterShoppingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/oop_cw/pase_01/controller/WestminsterShoppingManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/oop_cw/pase_01/model/CurrentUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/oop_cw/pase_01/model/CurrentUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/oop_cw/pase_01/model/ProductList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/oop_cw/pase_01/model/ProductList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/oop_cw/pase_01/model/ShoppingCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/oop_cw/pase_01/model/ShoppingCart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/oop_cw/pase_01/model/UserList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/oop_cw/pase_01/model/UserList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/oop_cw/pase_01/view/ProductDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/oop_cw/pase_01/view/ProductDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/oop_cw/pase_01/view/ShoppingCartDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/oop_cw/pase_01/view/ShoppingCartDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/oop_cw/pase_01/view/TblProductModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/oop_cw/pase_01/view/TblProductModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/oop_cw/pase_01/view/UserLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/oop_cw/pase_01/view/UserLoginDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userdetails.txt" beforeDir="false" afterPath="$PROJECT_DIR$/userdetails.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2b4JMD7Y8p2LeUz0Mud1b8sayTD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.WestminsterShoppingApplication.executor": "Debug",
+    "Application.WestminsterShoppingManager.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/SEM3/OOP/TutorialWorks",
+    "settings.editor.selected.configurable": "editor.preferences.tabs"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="WestminsterShoppingManager" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.oop_cw.pase_01.WestminsterShoppingApplication" />
+      <module name="w1955604_20220613_OOP_CW" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e0eaf65d-7897-453f-8517-f5adc4d8478c" name="Changes" comment="" />
+      <created>1705468367842</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1705468367842</updated>
+    </task>
+    <servers />
+  </component>
+</project>

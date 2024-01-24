@@ -1,6 +1,8 @@
 package com.oop_cw.pase_01;
 
-import com.oop_cw.pase_01.controller.ProductDisplayController;
+import com.oop_cw.pase_01.controller.ProductGUIController;
+import com.oop_cw.pase_01.controller.ShoppingCartGUIController;
+import com.oop_cw.pase_01.controller.UserLoginController;
 import com.oop_cw.pase_01.controller.WestminsterShoppingManager;
 import com.oop_cw.pase_01.model.Product;
 
@@ -10,13 +12,10 @@ public class WestminsterShoppingApplication {
 
     public static void main(String[] args) {
 
-        ArrayList<Product> productList = new ArrayList<>();
-        ArrayList<Product> shoppingCartList = new ArrayList<>();
-
+        // Instantiating an instance of the WestminsterShoppingManger class
         WestminsterShoppingManager shoppingManager = new WestminsterShoppingManager();
 
-//        ProductDisplayController productDisplayScene = new ProductDisplayController(productList, shoppingCartList);
-
+        // Calling the menu method of the WestminsterShoppingManager instance
         shoppingManager.menu();
 
     }
