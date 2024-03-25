@@ -20,7 +20,7 @@ public class ShoppingCartGUIController {
         // Setting frame's layout to BorderLayout
         frame.setLayout(new BorderLayout());
         // Setting the title of the frame
-        frame.setTitle("Westminster Shopping Center");
+        frame.setTitle("PAGOMA Shopping Center");
         // Setting the location of the frame to center of the screen
         frame.setLocationRelativeTo(null);
         // Setting the default closing operation to dispose the GUI

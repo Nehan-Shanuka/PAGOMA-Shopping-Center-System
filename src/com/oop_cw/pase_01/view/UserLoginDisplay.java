@@ -51,7 +51,7 @@ public class UserLoginDisplay extends JFrame {
         JPanel centerPanel2Sub2 = new JPanel(new BorderLayout());
         centerPanel2Sub2.setBorder(new EmptyBorder(9, 0, 9, 100));
 
-        JLabel lblWelcomeNote = new JLabel("WESTMINSTER SHOPPING CENTER");
+        JLabel lblWelcomeNote = new JLabel("PAGOMA SHOPPING CENTER");
         Font fontResize1 = lblWelcomeNote.getFont().deriveFont(20f);
         lblWelcomeNote.setFont(fontResize1);
         lblWelcomeNote.setForeground(Color.WHITE);
